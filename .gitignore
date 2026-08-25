@@ -1,0 +1,17 @@
+venv/
+data/raw/*.csv
+data/raw/*.parquet
+data/processed/*.parquet
+models/*.pkl
+models/*.json
+models/*.txt
+mlruns/
+mlartifacts/
+mlflow.db
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+reports/*.html
+

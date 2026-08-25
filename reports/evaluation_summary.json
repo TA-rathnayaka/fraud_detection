@@ -1,0 +1,25 @@
+{
+  "test_roc_auc": 0.9888486887391861,
+  "test_pr_auc": 0.6816269514961734,
+  "decision_threshold": 0.02,
+  "review_cost_per_fp": 5.0,
+  "estimated_savings_vs_no_model": 474441.74,
+  "recall_by_category": {
+    "misc_net": 1.0,
+    "shopping_net": 1.0,
+    "grocery_pos": 0.9565,
+    "gas_transport": 0.9412,
+    "entertainment": 0.9286,
+    "shopping_pos": 0.9167,
+    "home": 0.8333,
+    "personal_care": 0.8333,
+    "kids_pets": 0.6774,
+    "misc_pos": 0.6071,
+    "food_dining": 0.55,
+    "health_fitness": 0.4667,
+    "travel": 0.4286,
+    "grocery_net": 0.3529
+  },
+  "n_test_transactions": 157286,
+  "test_fraud_rate": 0.006059026232468243
+}

@@ -1,0 +1,24 @@
+{
+  "features": [
+    "amount",
+    "hour_sin",
+    "hour_cos",
+    "dow_sin",
+    "dow_cos",
+    "is_weekend",
+    "card_tenure_days",
+    "user_txn_count_1h",
+    "user_amount_sum_1h",
+    "user_txn_count_24h",
+    "user_amount_sum_24h",
+    "user_txn_count_7d",
+    "user_amount_sum_7d",
+    "time_since_prev_txn_sec",
+    "amount_zscore_user",
+    "is_new_category_for_user",
+    "distance_from_home_km",
+    "merchant_fraud_rate_prior",
+    "category_fraud_rate_prior"
+  ],
+  "label": "is_fraud"
+}
