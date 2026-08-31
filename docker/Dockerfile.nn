@@ -8,7 +8,8 @@ FROM python:3.11-slim
 WORKDIR /app
 
 COPY docker/requirements-nn.txt .
-RUN pip install --no-cache-dir -r requirements-nn.txt
+RUN pip install --no-cache-dir --index-url https://download.pytorch.org/whl/cpu torch==2.13.0 \
+    && pip install --no-cache-dir -r requirements-nn.txt
 
 COPY src/__init__.py src/__init__.py
 COPY src/nn_service/ src/nn_service/
