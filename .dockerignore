@@ -1,0 +1,12 @@
+venv/
+notebooks/
+.git/
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+data/raw/*.csv
+mlruns/
+mlartifacts/
+mlflow.db
+reports/
+.DS_Store

@@ -1,0 +1,30 @@
+{
+  "n_fn": 53,
+  "n_fp": 2230,
+  "fn_near_miss_pct": 0.8113207547169812,
+  "fn_confident_blind_spot_pct": 0.05660377358490566,
+  "fn_top_categories_by_dollars_missed": {
+    "shopping_pos": 3554.9,
+    "misc_net": 1566.54,
+    "entertainment": 1080.87,
+    "misc_pos": 1055.77,
+    "food_dining": 810.29
+  },
+  "fp_top_categories_by_count": {
+    "shopping_pos": 353,
+    "misc_pos": 280,
+    "shopping_net": 228,
+    "entertainment": 208,
+    "kids_pets": 191
+  },
+  "top_shap_gap_features": {
+    "amount": 5.313000202178955,
+    "card_tenure_days": 0.8375999927520752,
+    "hour_cos": 0.8299000263214111,
+    "hour_similarity_to_user": 0.5875999927520752,
+    "hour_sin": 0.5440000295639038,
+    "time_since_prev_txn_sec": 0.29899999499320984,
+    "merchant_fraud_rate_prior": 0.26249998807907104,
+    "amount_zscore_user": 0.2531999945640564
+  }
+}

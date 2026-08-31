@@ -7,6 +7,7 @@ numpy==2.4.6
 scikit-learn==1.9.0
 xgboost==3.2.0
 lightgbm==4.7.0
+torch==2.13.0
 shap==0.51.0
 mlflow==3.15.1
 matplotlib==3.11.1
@@ -16,3 +17,6 @@ fastapi==0.141.1
 uvicorn==0.52.4
 pydantic==2.13.4
 evidently==0.7.21
+kafka-python==3.0.11
+prometheus-client==0.26.0
+httpx==0.28.1

@@ -1,0 +1,12 @@
+{
+  "test_roc_auc": 0.9868001450263408,
+  "test_pr_auc": 0.7089066919746058,
+  "inference_latency_ms_median": 0.5971460004730034,
+  "n_params": 72897,
+  "train_time_sec": 1004.6460661888123,
+  "epochs_trained": 13,
+  "train_sample_size": 120000,
+  "val_sample_size": 20000,
+  "device": "cpu",
+  "mlflow_run_id": "bb69a9b462b14a648f48e96a8641e3ce"
+}

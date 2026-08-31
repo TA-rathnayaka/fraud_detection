@@ -1,0 +1,21 @@
+# FT-Transformer scoring service -- deliberately a separate image from docker/Dockerfile.
+# PyTorch and XGBoost's native code segfault when both run in the same process (see
+# notebooks/04b's crash writeup and src/nn_service/main.py's module docstring), and this
+# also keeps torch (a large dependency) out of the main API's lean image.
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY docker/requirements-nn.txt .
+RUN pip install --no-cache-dir -r requirements-nn.txt
+
+COPY src/__init__.py src/__init__.py
+COPY src/nn_service/ src/nn_service/
+
+ENV PYTHONUNBUFFERED=1
+ENV MODEL_DIR=/app/models
+
+EXPOSE 8100
+
+CMD ["uvicorn", "src.nn_service.main:app", "--host", "0.0.0.0", "--port", "8100"]

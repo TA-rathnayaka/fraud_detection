@@ -1,0 +1,39 @@
+{
+  "xgboost": {
+    "test_roc_auc": 0.9903479234055425,
+    "test_pr_auc": 0.7219578031829508,
+    "inference_latency_ms_median": 5.705666499125073,
+    "tree_nodes": 87198
+  },
+  "ft_transformer": {
+    "test_roc_auc": 0.9868001450263408,
+    "test_pr_auc": 0.7089066919746058,
+    "inference_latency_ms_median": 0.5971460004730034,
+    "n_params": 72897,
+    "train_time_sec": 1004.6460661888123,
+    "epochs_trained": 13,
+    "train_sample_size": 120000,
+    "val_sample_size": 20000,
+    "device": "cpu",
+    "mlflow_run_id": "bb69a9b462b14a648f48e96a8641e3ce"
+  },
+  "deployed_model": "xgboost",
+  "verdict": "XGBoost still wins or ties on this held-out test set (PR-AUC 0.0131 higher, ROC-AUC 0.0035 higher) despite the FT-Transformer having a native-categorical-embedding advantage XGBoost doesn't get (see notebook 04b's opening note). This is consistent with Grinsztajn et al. 2022's finding that tree ensembles remain the stronger default on structured tabular data with irregular feature interactions (the velocity/z-score features here) even against a modern attention-based architecture. XGBoost stays deployed.",
+  "stacked_xgboost": {
+    "test_roc_auc": 0.9961880983344208,
+    "test_pr_auc": 0.875797915248834,
+    "nn_score_importance_rank": 1,
+    "n_features": 22,
+    "train_rows": 771289
+  },
+  "control_xgboost_same_rows_no_nn_score": {
+    "test_roc_auc": 0.9930808834095491,
+    "test_pr_auc": 0.7905165281803964,
+    "train_rows": 771289
+  },
+  "isolated_effects": {
+    "extra_training_data_pr_auc": 0.06855872499744564,
+    "nn_score_feature_pr_auc": 0.08528138706843758
+  },
+  "stacking_verdict": "The naive deployed-vs-stacked comparison (PR-AUC 0.7220 -> 0.8758) conflates two changes: the stacked model's training set also includes val (157k rows the deployed model never saw), separate from adding nn_score. Isolating each: +0.0686 PR-AUC comes from the extra training data alone (control model, same rows as stacked, no nn_score: 0.7905), and a further +0.0853 PR-AUC comes specifically from adding nn_score (control 0.7905 -> stacked 0.8758). Both effects are real; neither is spurious -- the isolated nn_score contribution alone still exceeds the standalone FT-Transformer's edge over XGBoost. nn_score ranks #1 of 22 features by importance, confirming the tree model is genuinely using it, not ignoring it. On overfitting: all three models show a sizeable train-vs-test gap (this is a pre-existing property of this XGBoost config at max_depth=8 on a rare-fraud class, not something stacking introduced), but the gap *shrinks* as nn_score is added rather than growing, so the stacked model is not more overfit than the deployed baseline -- if anything, less. It isn't deployed regardless: the serving path would depend on both a PyTorch and an XGBoost model at inference time, a real infra cost against the gain."
+}

@@ -3,13 +3,13 @@
   "psi_train_vs_val": 6.1534812210448235,
   "psi_train_vs_test": 6.75493932644824,
   "simulated_adversarial_shift": {
-    "score_psi": 4.609927075428383e-05,
+    "score_psi": 1.936884085840425e-05,
     "max_feature_psi": 0.0001062372620315282,
-    "pr_auc_before": 0.6816269514961734,
-    "pr_auc_after": 0.15943641839003764,
+    "pr_auc_before": 0.7219578031829508,
+    "pr_auc_after": 0.2853366685379552,
     "drift_flag": false,
     "perf_flag": true,
     "retrain_triggered": true
   },
-  "retrain_outcome": "PROMOTED v4 to 'production' alias (recovered PR-AUC 0.1605 -> 0.9861 on adapted traffic)"
+  "retrain_outcome": "PROMOTED v15 to 'production' alias (recovered PR-AUC 0.2565 -> 0.9879 on adapted traffic). Not written to models/fraud_xgboost.json -- see comment above."
 }
